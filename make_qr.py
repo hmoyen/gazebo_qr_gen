@@ -45,7 +45,7 @@ with open(MODEL_DIR / 'model.sdf', 'x') as model_file:
     )
 with open(MODEL_DIR / 'materials' / 'scripts' / 'model.material', 'x') as material_file:
     material_file.write(
-        'material qr/qr{MODEL_NAME}\n'
+        f'material qr/qr{MODEL_NAME}\n'
         '{\n'
         '\ttechnique\n'
         '\t{\n'
