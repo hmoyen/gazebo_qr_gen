@@ -21,7 +21,7 @@ Width:  0.44
 
 ### 3. Add to Gazebo
 
-Move folder `output/qrmodel_name` to any Gazebo models folder, for example, `/home/user/model_editor_models/`
+Move folder `output/qrmodel_name` to any Gazebo models folder, for example, `/home/user/model_editor_models/`. Don't forget to reload Gazebo.
 
 ---
 
