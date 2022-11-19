@@ -20,7 +20,7 @@ assert not MODEL_DIR.exists(), (
 )
 (MODEL_DIR / 'materials' / 'textures').mkdir(parents=True)
 (MODEL_DIR / 'materials' / 'scripts').mkdir(parents=True)
-pyqrcode.create(TEXT).png(MODEL_DIR / 'materials' / 'textures' / 'model.png', scale=1)
+pyqrcode.create(TEXT).png(MODEL_DIR / 'materials' / 'textures' / f'{MODEL_NAME}.png', scale=1)
 with open(MODEL_DIR / 'model.config', 'x') as config_file:
     config_file.write(
 f'''<?xml version="1.0"?>
@@ -50,7 +50,7 @@ f'''<?xml version="1.0"?>
                     <script>
                         <uri>model://{MODEL_NAME}/materials/scripts</uri>
                         <uri>model://{MODEL_NAME}/materials/textures</uri>
-                        <name>qr/{MODEL_NAME}</name>
+                        <name>{MODEL_NAME}/{MODEL_NAME}</name>
                     </script>
                 </material>
             </visual>
@@ -60,7 +60,7 @@ f'''<?xml version="1.0"?>
     )
 with open(MODEL_DIR / 'materials' / 'scripts' / 'model.material', 'x') as material_file:
     material_file.write(
-f'''material qr/{MODEL_NAME}
+f'''material {MODEL_NAME}/{MODEL_NAME}
 {{
     technique
     {{
@@ -68,7 +68,7 @@ f'''material qr/{MODEL_NAME}
         {{
             texture_unit
             {{
-                texture model.png
+                texture {MODEL_NAME}.png
                 filtering none
                 scale 1.0 1.0
             }}
