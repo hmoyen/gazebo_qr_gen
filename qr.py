@@ -2,13 +2,15 @@ import config
 import pyqrcode
 import string
 
-
 def get_safe_name(s: str) -> str:
     return ''.join((i for i in s if i in string.ascii_letters + string.digits + '_'))
 
+def get_safe_text(s: str) -> str:
+    allowed_chars = string.ascii_letters + string.digits + ' _,'
+    return ''.join((i for i in s if i in allowed_chars))
 
 MODEL_NAME = f'qr_{get_safe_name(input("Model name: "))}'
-TEXT = get_safe_name(input('Text: '))
+TEXT = get_safe_text(input('Text: '))
 WIDTH = input(f'Width of QR code (empty for {config.PLATE_WIDTH}): ')
 try:
     WIDTH = float(WIDTH)
